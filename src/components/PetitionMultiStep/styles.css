@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+::selection{
+  color: #fff;
+  background: #f01338;
+}
+
+.container{
+  width: 50%;
+  height: auto;
+  margin: 3% 20%;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 30px 25px 10px 25px;
+  overflow: hidden;
+}
+
+.container .form-outer{
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.container .form-outer form{
+  display: flex;
+  width: 500%;
+}
+.form-outer form .page{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.form-outer form .page .field{
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+form .page .field .label{
+  font-weight: 700;
+  font-size: 48px;
+  text-align: left;
+  /* margin-bottom: 20px; */
+}
+
+form .page .field .info {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+form .page .field .fieldError {
+  min-height: 70px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid brown;
+}
+
+form .page .field .fieldInput{
+  min-height: 60px;
+  width: 100%;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+}
+
+form .page .field .fieldError .error {
+  width: inherit;
+  background-color: lightgoldenrodyellow;
+  color: brown;
+  text-align: left;
+}
+
+form .page .field .fieldInput input, 
+form .page .field .fieldError input,
+form .page .field .fieldInput .qeditor,
+form .page .field .fieldError .qeditor {
+
+  width: 95%;
+  padding: 15px 0px;
+  font-size: 20px;
+  border: none;
+}
+
+form .page .field .fieldInput .imgPreview .displayImg {
+  width: 100%;
+  height: 100%;
+}
+
+form .page .field .fieldInput .imgPreview .displayImgSmall {
+  width: 50%;
+  height: 50%;
+}
+
+form .page .field .fieldInput .imgPreview .closebtn, 
+form .page .field .fieldError .imgPreview .closebtn {
+  position: relative;
+  float: right;
+  font-size: x-large;
+  cursor: pointer;
+  padding: 3px 15px;
+  background-color: white;
+  border: 3px solid red;
+  border-radius: 5px;
+}
+
+form .page .field .fieldInput .imgPreview .suggestText {
+  padding: 10px;
+  color: darkgrey;
+  background-color:rgba(252, 248, 196, 0.959);
+}
+
+form .page .field div .imgContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+form .page .field div .imgContainer .imgBtn {
+  width: 25%;
+  font-size: medium;
+  font-weight: 600;
+  border: 3px solid lightgrey;
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  padding: 10px 3px;
+  margin-bottom: 25px;
+}
+
+form .page .field div .imgContainer .imgByUrl{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+form .page .field div .imgContainer .imgByUrl input {
+  width: 90%;
+  margin: 10px 0px 20px 10px;
+  padding: 7px 0px;
+  border: 3px solid lightgrey;
+  border-radius: 5px 0px 0px 5px;
+}
+
+form .page .field div .imgContainer .imgByUrl button {
+  width: 10%;
+  margin: 10px 10px 20px 0px;
+  border: 3px solid lightgrey;
+  border-radius: 0px 5px 5px 0px;
+  font-size: medium;
+  font-weight: 600;
+  background-color: white;
+}
+
+form .page .field div .imgContainer .imgByUrl button:hover:enabled,
+form .page .field div .imgContainer .imgBtn:hover {
+  border-color: black;
+  color: black;
+  cursor: pointer;
+}
+
+form .page .field select{
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+form .page .btns {
+  /* min-height: 10%; */
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+form .page .btns button{
+  width: auto;
+  border: none;
+  padding: 10px 15px;
+  background: #fd0202;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+form .page .btns button:hover{
+  background: rgb(160, 6, 6);
+}
+
+form .page .btns button.prev{
+  background-color: grey;
+}
+
+form .page .btns button.firstprev{
+  background-color: lightgrey;
+}
+
+form .page .btns button.prev:hover {
+  background: lightsteelblue;
+  box-shadow: 4px 3px 5px grey;
+}
+
+form .page .explainStep {
+  /* height: 35%;
+  min-height: 30%; */
+  display: flex; 
+  /* flex: 4; */
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: lightgrey;
+  border: 2px solid lightslategrey;
+  border-radius:  0.5em;
+  padding: 15px;
+}
+
+form .page .explainStep div {
+  text-align: left;
+  margin: 10px 0px;
+}
+form .page .explainStep span {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.container .progress-bar{
+  display: flex;
+  margin: 40px 0;
+  user-select: none;
+}
+.container .progress-bar .step{
+  text-align: center;
+  width: 50%;
+  position: relative;
+}
+.container .progress-bar .step p{
+  font-weight: 500;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 8px;
+}
+.progress-bar .step .bullet{
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  border: 2px solid #fd0202;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+.progress-bar .step .bullet.active{
+  background: #fd0202;
+  color: white
+}
+
+.progress-bar .step .bullet.completed{
+    border-color: #fd0202;
+    background-color: white;
+  }
+
+  .progress-bar .step .bullet.disabled{
+    border-color: grey;
+    background-color: white;
+    color: grey
+  }
+
+.progress-bar .step .bullet span{
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  font-size: larger;
+  transform: translateX(-50%);
+}
+.progress-bar .step .bullet.completed span{
+  display: none;
+}
+/* .progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after{
+  position: absolute;
+  content: '';
+  bottom: 11px;
+  right: -51px;
+  height: 3px;
+  width: 44px;
+  background: #262626;
+}
+.progress-bar .step .bullet.active:after{
+  background: #fd0202;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after{
+  display: none;
+} */
+.progress-bar .step p.active, .progress-bar .step p.completed{
+  color: #fd0202;
+  transition: 0.2s linear;
+}
+
+.progress-bar .step p.disabled{
+    color: grey;
+  }
+
+.progress-bar .step .check{
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  font-size: larger;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progress-bar .step .check.completed{
+  display: block;
+  color: #fd0202;
+}
+
+.progress-bar .step .check.active, .progress-bar .step .check.disabled {
+    display: none;
+}
