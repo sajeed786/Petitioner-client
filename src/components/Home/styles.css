@@ -1,0 +1,52 @@
+
+.banner-area{
+    width:100%;
+    height:100vh;
+    background-image: url(../../images/World_map_with_points.svg);
+    background-size:cover;
+}        
+
+.content-area{
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto sans-serif;
+}
+
+/* .content{
+    text-align: center;
+} */
+
+.content-area h1{
+    font-size:80px;
+    color: #fd0202;
+}
+
+.content-area p{
+    font-size:30px;
+    color: black;
+}
+
+.content-area a{
+    border:none;
+    outline:none;
+    padding:10px 15px;
+    margin-top:100px;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color:gray;
+    background: #fff;          
+}
+
+.content-area a:hover {
+    color: white;
+    background-color: #fd0202;
+    transition: ease-in;
+}
+
