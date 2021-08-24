@@ -8,19 +8,20 @@ const FirstStep = (props) => {
    const dispatch = useDispatch();
    const categories = useSelector(state => state.petition.category);
 
-   useEffect(async() => {
-      console.log("async call");
-      try{
-         const {data} = await getCategories();
-         const action = storeCategories();
-         dispatch({ ...action, data: data.options});
-         //console.log(recipients);
+   useEffect(() => {
+      async function fetchData(){
+         try{
+            const {data} = await getCategories();
+            const action = storeCategories();
+            dispatch({ ...action, data: data.options});
+            //console.log(recipients);
+         }
+         catch(error)
+         {
+            console.log(error);
+         }
       }
-      catch(error)
-      {
-         console.log(error);
-      }
-
+      fetchData();
    }, []); 
 
    
