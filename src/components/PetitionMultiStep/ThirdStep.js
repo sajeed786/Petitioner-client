@@ -23,18 +23,22 @@ const StepForm = (props) => {
    const dispatch = useDispatch();
    const recipients = useSelector(state => state.petition.recipients);
 
-   useEffect(async() => {
-      console.log("async call");
-      try{
-         const {data} = await getRecipients();
-         const action = storeRecipients();
-         dispatch({ ...action, data: data.options});
-         //console.log(recipients);
+   useEffect(() => {
+      
+      async function fetchData() {
+         try{
+            const {data} = await getRecipients();
+            
+            const action = storeRecipients();
+            dispatch({ ...action, data: data.options});
+         }
+         catch(error)
+         {
+            console.log(error);
+         }
       }
-      catch(error)
-      {
-         console.log(error);
-      }
+
+      fetchData();
 
    }, []);   
 
@@ -49,6 +53,7 @@ const StepForm = (props) => {
                         <div className="error" style={{display: (props.form.fieldError)?"block":"none"}}>{props.form.fieldError}</div>
                         <CustomSelect 
                            isMulti={true}
+                           name="petitionRecipients"
                            placeholder={props.form.placeholder}
                            handleChange={props.handleChange}
                            options={recipients}

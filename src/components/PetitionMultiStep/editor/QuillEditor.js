@@ -37,7 +37,7 @@ const QuillEditor = (props) => {
     <div style={{ width: "inherit", height: "inherit" }}>
 
       <div id="toolbar">
-      <select className="ql-header" defaultValue={""} onChange={e => e.persist()}>
+                    <select className="ql-header" name={props.name} defaultValue={""} onChange={e => e.persist()}>
                         <option value="1" />
                         <option value="2" />
                         <option value="" />

@@ -1,12 +1,20 @@
-import { AUTH, SIGNUP, LOGOUT, ACTIVATE } from '../constants/actionTypes';
+import { AUTH, SIGNUP, LOGOUT, ACTIVATE} from '../constants/actionTypes';
 import { toast } from 'react-toastify';
 
-export default (state = { authData: null }, action) => {
+const  initialState = {
+    authData: null,
+    isLoggedIn: false
+}
+
+export default (state = initialState, action) => {
     switch (action.type) {
         case AUTH:
+            //console.log(action.data.resultData);
             localStorage.setItem('profile', JSON.stringify({ ...action?.data}));
-            
-            return { ...state, authData: action?.data };
+            state = { ...state, authData: action.data.resultData, isLoggedIn: true};
+            console.log(state);
+            return state;
+         
         case SIGNUP:
             if(action.data.success)
                 toast.success(action.data.message);
@@ -26,7 +34,7 @@ export default (state = { authData: null }, action) => {
             return state; 
         case LOGOUT:
             localStorage.clear();
-            return { ...state, authData: null };
+            return { ...state, authData: null, isLoggedIn: false };
         
         default:
             return state;

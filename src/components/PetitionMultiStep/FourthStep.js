@@ -25,8 +25,6 @@ const Tip = [
 const StepForm = (props) => {
    const counterRef = React.useRef();
 
-   //const [content, setContent] = useState("");
-
    const onEditorChange = (text, html) => {
       // console.log(html);
       // console.log(text);
@@ -45,6 +43,7 @@ const StepForm = (props) => {
                         <div className="error" style={{display: (props.form.fieldError)?"block":"none"}}>{props.form.fieldError}</div>
                         <QuillEditor 
                            className="qeditor"
+                           name="petitionText"
                            placeholder={"Compose your petition..."}
                            onEditorChange={onEditorChange}
                         />

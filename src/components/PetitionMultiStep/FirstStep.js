@@ -6,15 +6,14 @@ import { storeCategories } from '../../actions/petition'
 
 const FirstStep = (props) => {
    const dispatch = useDispatch();
-   const categories = useSelector(state => state.petition.category);
+   const category = useSelector(state => state.petition.category);
 
    useEffect(() => {
       async function fetchData(){
          try{
             const {data} = await getCategories();
-            const action = storeCategories();
+            let action = storeCategories();
             dispatch({ ...action, data: data.options});
-            //console.log(recipients);
          }
          catch(error)
          {
@@ -36,9 +35,10 @@ const FirstStep = (props) => {
                         <div className="error" style={{display: (props.form.fieldError)?"block":"none"}}>{props.form.fieldError}</div>
                         <CustomSelect 
                            isMulti={false}
+                           name="petitionCategory"
                            placeholder={props.form.placeholder}
                            handleChange={props.handleChange}
-                           options={categories}
+                           options={category}
                         />
                      </div>
                   </div>

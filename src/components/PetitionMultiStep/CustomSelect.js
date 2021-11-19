@@ -47,6 +47,7 @@ const CustomSelect = (props) => {
     return (
       <AsyncCreatableSelect
         isMulti={props.isMulti}
+        name={props.name}
         styles={customStyles}
         placeholder={props.placeholder}
         cacheOptions

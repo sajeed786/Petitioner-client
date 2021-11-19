@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import { ToastContainer, toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 //import Icon from './Icon';
@@ -19,32 +19,27 @@ import googleImage from '../../images/google_circular_logo.jpg';
 const initialState = { firstName: "", lastName: "", email: "", password:"", confirmPassword: ""};
 
 const Auth = () => {
+    //const message = useSelector(state => state.auth.authMessage); //getting auth message if any from the redux store 
+    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
     const classes= useStyles();
     const [isSignup, setIsSignup] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState(initialState);
-    //const [signupState, setSignupState] = useState(initialSignupState);
+    
     const dispatch = useDispatch();
     const history = useHistory();
-    const location = useLocation();
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword) 
 
-    // useEffect(() => {
-    //     const newState = JSON.parse(localStorage.getItem('signupStatus'));
-    //     console.log(newState);
-    //     setSignupState(newState);
-    //     //let flag =false;
-    //     if(signupState?.success)
-    //     {
-    //         toast.success(signupState.message);
+    useEffect(() => { 
+        if(!isLoggedIn)
+        {   
+            console.log("user logged in :" + isLoggedIn);
+            toast.error("Please Log in to continue !!");
+        }
         
-    //         //localStorage.removeItem('signupStatus');
-    //         //setSignupState(initialSignupState);
-    //     }
-   
-    //   }, [location]);
+      }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();

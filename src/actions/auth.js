@@ -1,4 +1,4 @@
-import { AUTH, SIGNUP } from '../constants/actionTypes';
+import { AUTH, SIGNUP} from '../constants/actionTypes';
 import * as api from '../api/index';
 import { toast } from 'react-toastify';
 
@@ -14,7 +14,7 @@ export const login = (formData, history) => async (dispatch) => {
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 export const signup = (formData, history) => async (dispatch) => {
     
@@ -32,7 +32,7 @@ export const signup = (formData, history) => async (dispatch) => {
         console.log(error);
         toast.error(error.response.data.message);
     }
-}
+};
 
 export const fbauth = (response, history) => async (dispatch) => {
     
@@ -50,5 +50,5 @@ export const fbauth = (response, history) => async (dispatch) => {
     } catch (error) {
         console.log(error);
     }
-}
+};
 

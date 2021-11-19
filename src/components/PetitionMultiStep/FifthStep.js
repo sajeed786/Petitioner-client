@@ -40,6 +40,7 @@ const FifthStep = (props) => {
        } else {
          setImage(null);
        }
+      console.log(file);
       props.mediaHandler(file);
    }
 
@@ -56,7 +57,7 @@ const FifthStep = (props) => {
       // console.log("In click handler");
       // console.log("Image Url : " + imageUrl);
       event.preventDefault();
-      var image = new Image();
+      let image = new Image();
       image.src = imageUrl;
 
       image.addEventListener('load', () => {
@@ -77,13 +78,13 @@ const FifthStep = (props) => {
          setBtnState(true);
    }
 
-   const handleSubmit = (e) => {
-      e.preventDefault();
-      if(fieldError)
-         alert("Please try to fix all the errors on screen");
-      else
-         props.handlePetitionSubmit();
-   }
+   // const handleSubmit = (e) => {
+   //    e.preventDefault();
+   //    if(fieldError)
+   //       alert("Please try to fix all the errors on screen");
+   //    else
+   //       props.handlePetitionSubmit();
+   // }
 
    useEffect(() => {
       if (image) {
@@ -100,7 +101,7 @@ const FifthStep = (props) => {
     }, [image]);
    
     return (
-            <div className="page">
+            <>
                   <div className="field">
                      <div className="label">
                         {props.form.label}
@@ -137,6 +138,7 @@ const FifthStep = (props) => {
                               <input 
                                  style={{display: "none"}}
                                  type="file" 
+                                 name="petitionMedia"
                                  accept="image/*"
                                  name="Add Photo"
                                  onChange={imgSelectedHandler}
@@ -148,7 +150,7 @@ const FifthStep = (props) => {
                               }} >Add Photo</button>
                               <DividerWithText>or</DividerWithText>
                               <div className="imgByUrl">
-                                 <input type="url" onChange={imgUrlHandler}/>
+                                 <input type="url" name="petitionMedia" onChange={imgUrlHandler}/>
                                  <button disabled={btnState} onClick={fetchImage}>Add</button>
                               </div>
                            </div>
@@ -156,12 +158,12 @@ const FifthStep = (props) => {
                      </div>   
                   </div>
 
-                  <div className="btns">
+                  {/* <div className="btns">
                      <button onClick={props.handleBack} className="prev">Back</button>
-                     <button onClick={handleSubmit} className="next">{`Save & Preview`}</button>
-                  </div>
+                     <button type="submit" onClick={handleSubmit} className="next">{`Save & Preview`}</button>
+                  </div> */}
 
-                  <div className="explainStep">
+                  {/* <div className="explainStep">
                      <div>
                         <span>{Tip[0].heading}</span>
                         <p>{Tip[0].content}</p>
@@ -174,8 +176,8 @@ const FifthStep = (props) => {
                         <span>{Tip[2].heading}</span>
                         <p>{Tip[2].content}</p>
                      </div>
-                  </div>
-            </div>
+                  </div> */}
+            </>
     )
 }
 
